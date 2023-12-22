@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "universe"
+version = "0.1.0"
+description = ""
+authors = ["Dias <saidshabekov@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.4"
+tabula-py = "^2.7.0"
+django-extensions = "^3.2.3"
+requests = "^2.31.0"
+bs4 = "^0.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

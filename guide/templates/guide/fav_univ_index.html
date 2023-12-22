@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniVerse</title>
+</head>
+<body>
+  <header>
+    <h1>UniVerse - Понравившиеся Университеты</h1>
+  </header>
+  <main>
+    <form action="{% url 'guide:compare'%}", method="post">
+      {% csrf_token %}
+      {{form}}
+      <input type="submit" value="compare universities" name="compare">
+    </form>
+    <section class="universities">
+       {% if universities|length != 0 %}
+       {% for university in universities%}
+       <div class="university-card">
+        <h2>{{university.name}}</h2>
+        <h4>id: {{university.id}}</h4>
+        <a href="{% url 'guide:detail' university.id%}">Подробнее</a>
+      </div>
+       {% endfor %}
+       {% else %}
+       <p>List is empty</p>
+       {%endif%}
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2023 UniVerse. Все права защищены.</p>
+  </footer>
+</body>
+</html>

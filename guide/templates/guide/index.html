@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniVerse</title>
+</head>
+<body>
+  <header>
+    <h1>UniVerse - Поиск университетов и грантов</h1>
+  </header>
+  <main>
+    <form action="{% url 'guide:index'%}" method="post">
+      <h3>Filter:</h3>
+      {% csrf_token %}
+      {{ form1.as_p }}
+      <input type="submit" value="submit">
+    </form>
+    <form action="{% url 'guide:grant_chance'%}" method="post">
+      <h3>Grant chance</h3>
+      {% csrf_token %}
+      {{ form2.as_p }}
+      {%if result %}
+      <p> your chance: {{result}}</p>
+      <p> max points: {{max}}</p>
+      <p> min points: {{min}}</p>
+      {%endif%}
+      <input type="submit" value="submit">
+    </form>
+    <a href="{% url 'guide:fav_univ_index'%}">Понравившиеся Университеты</a><br>
+    <a href="{% url 'guide:fav_prog_index'%}">Понравившиеся Программы</a>
+    <section class="universities">
+       {% if universities|length != 0 %}
+       {% for university in universities%}
+       <div class="university-card">
+        <h2>{{university.name}}</h2>
+        <a href="{% url 'guide:detail' university.id%}">Подробнее</a>
+      </div>
+       {% endfor %}
+       {% else %}
+       <p>List is empty</p>
+       {%endif%}
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2023 UniVerse. Все права защищены.</p>
+  </footer>
+</body>
+</html>

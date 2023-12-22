@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Детали программы</title>
+</head>
+<body>
+  <main>
+    <section class="program-details">
+      <h2>{{ program.name }}</h2>
+      <p><strong>Степень образования:</strong> {{ program.degree }}</p>
+      <p><strong>О программе:</strong> {{ program.description }}</p>
+      <p><strong>Длительность:</strong> {{ program.duration }}</p>
+      <p><strong>Требования:</strong> {{ program.requirements }}</p>
+      <p><strong>Код гранта для программы:</strong> {{ program.grant_code }}</p>
+      <form action="{%url 'guide:add_favorite' program.id%}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="add program to favorites" name="add to list">
+      </form>
+  </main>
+  <footer>
+    <p>&copy; 2023 UniVerse. Все права защищены.</p>
+  </footer>
+</body>
+</html>

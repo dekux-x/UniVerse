@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Детали университета</title>
+</head>
+<body>
+  <main>
+    <section class="university-details">
+      <h2>{{ university.name }}</h2>
+      <p><strong>Адрес:</strong> {{ university.address }}</p>
+      <p><strong>Тип:</strong> {{ university.type }}</p>
+      <p><strong>Сайт:</strong> <a href="{{ university.site }}">{{university.site}}</a></p>
+      <p><strong>Номер:</strong> {{ university.number }}</p>
+      <p><strong>Общежитие:</strong> {{ university.dormitary }}</p>
+      <p><strong>Об университете:</strong> {{ university.description }}</p>
+    </section>
+    {% if faculties%}
+    <section class="faculty-list">
+      <h2>Список факультетов</h2>
+      <ul>
+        {% for faculty in faculties %}
+          <li>{{ faculty.name }}</li>
+          <a href="{% url 'guide:faculty_detail' faculty.id%}">Подробнее</a>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+    <form action="{%url 'guide:add_favorite' university.id%}" method="post">
+      {% csrf_token %}
+      <input type="submit" value="add university to favorites" name="add to list">
+    </form>
+  </main>
+  <footer>
+    <p>&copy; 2023 UniVerse. Все права защищены.</p>
+  </footer>
+</body>
+</html>

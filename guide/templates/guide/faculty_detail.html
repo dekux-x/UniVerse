@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Детали факультета</title>
+</head>
+<body>
+  <main>
+    <section class="faculty-details">
+      <h2>{{ faculty.name }}</h2>
+      <p><strong>Число программ:</strong> {{ faculty.count_of_programs }}</p>
+      <p><strong>О факультете:</strong> {{ faculty.description }}</p>
+    </section>
+    <section class="faculty-list">
+      <h2>Список  программ</h2>
+      <ul>
+        {% for program in programs %}
+          <li>{{ program.name }}</li>
+          <a href="{% url 'guide:program_detail' program.id%}">Подробнее</a>
+        {% endfor %}
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2023 UniVerse. Все права защищены.</p>
+  </footer>
+</body>
+</html>

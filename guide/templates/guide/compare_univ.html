@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сравнение университетов</title>
+</head>
+<body>
+  <h1>Сравнение университетов</h1>
+  
+  <div class="university-comparison">
+    <div class="university">
+      <h2>Университет 1</h2>
+      <h2>{{ university1.name }}</h2>
+      <p><strong>Адрес:</strong> {{ university1.address }}</p>
+      <p><strong>Тип:</strong> {{ university1.type }}</p>
+      <p><strong>Сайт:</strong> <a href="{{ university1.site }}">{{university1.site}}</a></p>
+      <p><strong>Номер:</strong> {{ university1.number }}</p>
+      <p><strong>Общежитие:</strong> {{ university1.dormitary }}</p>
+      <p><strong>Об университете:</strong> {{ university1.description }}</p>
+    </div>
+
+    <div class="university">
+      <h2>Университет 2</h2>
+      <h2>{{ university2.name }}</h2>
+      <p><strong>Адрес:</strong> {{ university2.address }}</p>
+      <p><strong>Тип:</strong> {{ university2.type }}</p>
+      <p><strong>Сайт:</strong> <a href="{{ university2.site }}">{{university2.site}}</a></p>
+      <p><strong>Номер:</strong> {{ university2.number }}</p>
+      <p><strong>Общежитие:</strong> {{ university2.dormitary }}</p>
+      <p><strong>Об университете:</strong> {{ university2.description }}</p>
+    </div>
+  </div>
+</body>
+</html>

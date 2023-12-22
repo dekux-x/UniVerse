@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сравнение программ</title>
+</head>
+<body>
+  <h1>Сравнение программ</h1>
+  
+  <div class="program-comparison">
+    <div class="program">
+      <h2>Программа 1</h2>
+      <h2>{{ program1.name }}</h2>
+      <p><strong>Степень образования:</strong> {{ program1.degree }}</p>
+      <p><strong>О программе:</strong> {{ program1.description }}</p>
+      <p><strong>Длительность:</strong> {{ program1.duration }}</p>
+      <p><strong>Требования:</strong> {{ program1.requirements }}</p>
+      <p><strong>Код гранта для программы:</strong> {{ program1.grant_code }}</p>
+    </div>
+
+    <div class="program">
+      <h2>Программа 2</h2>
+        <h2>{{ program2.name }}</h2>
+        <p><strong>Степень образования:</strong> {{ program2.degree }}</p>
+        <p><strong>О программе:</strong> {{ program2.description }}</p>
+        <p><strong>Длительность:</strong> {{ program2.duration }}</p>
+        <p><strong>Требования:</strong> {{ program2.requirements }}</p>
+        <p><strong>Код гранта для программы:</strong> {{ program2.grant_code }}</p>
+    </div>
+  </div>
+</body>
+</html>

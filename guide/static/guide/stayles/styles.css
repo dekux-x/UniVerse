@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSONField Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        h1 {
+            margin: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JSONField Data</h1>
+    </header>
+    
+    <section>
+        <h2>Value at key "key_name": {{ data.key_name }}</h2>
+        
+        <h2>Items:</h2>
+        <ul>
+            {% for item in data.items %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>

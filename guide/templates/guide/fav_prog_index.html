@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniVerse</title>
+</head>
+<body>
+  <header>
+    <h1>UniVerse - Понравившиеся Программы</h1>
+  </header>
+  <main>
+    <form action="{% url 'guide:compare'%}" method="post">
+      {% csrf_token %}
+      {{form}}
+      <input type="submit" value="compare programs" name="compare">
+    </form>
+    <section class="programs">
+       {% if programs|length != 0 %}
+       {% for program in programs%}
+       <div class="program-card">
+        <h2>{{program.name}}</h2>
+        <h4>id: {{program.id}}</h4>
+        <a href="{% url 'guide:program_detail' program.id%}">Подробнее</a>
+      </div>
+       {% endfor %}
+       {% else %}
+       <p>List is empty</p>
+       {%endif%}
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2023 UniVerse. Все права защищены.</p>
+  </footer>
+</body>
+</html>
